@@ -5,6 +5,7 @@ const path = require('path');
 const dbPath = path.join(__dirname, '../db/db.json');
 // const { v4: uuidv4 } = require('uuid');
 
+//route that reads the db.json file and returns all saved notes as JSON
 router.get('/notes', (req, res) => {
     fs.readFile(dbPath, 'utf8', (err, data) => {
         if (err) {
@@ -15,6 +16,7 @@ router.get('/notes', (req, res) => {
     });
 });
 
+//route that looks for the id of the note and returns it to the user
 router.post('/notes', (req, res) => {
     fs.readFile(dbPath, 'utf8', (err, data) => {
         if (err) {
@@ -42,6 +44,7 @@ router.post('/notes', (req, res) => {
     });
 });
 
+//route that looks for the id of the note and deletes it
 router.delete('/notes/:id', (req, res) => {
     fs.readFile(dbPath, 'utf8', (err, data) => {
         if (err) {
